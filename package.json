@@ -10,5 +10,8 @@
     "deploy": "GH=1 npm run build && bash scripts/deploy-gh.sh"
   },
   "author": "zhangting",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "vuepress": "^1.9.7"
+  }
 }
