@@ -12,6 +12,7 @@
   "author": "zhangting",
   "license": "ISC",
   "devDependencies": {
+    "vuepress-theme-melodydl": "^1.1.2",
     "vuepress": "^1.9.7"
   }
 }
