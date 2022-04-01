@@ -77,3 +77,15 @@ Js中的`this`只是一个相对复杂的概念，粗略地讲，函数的调用
 - https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3
 - https://stackoverflow.com/a/3127440/1751946
 
+##### 请解释原型继承（prototypal inheritance）的工作原理
+
+这是一个非常常见的Javascript问题。所有js对象都有`—__proto__`属性，指向它的原型对象。当试图访问一个对象的属性时，如果没有在该对象上找到，它还会搜寻该对象的原型的原型，依次层层向上搜索，直到找到一个名字匹配的属性或打到原型链的末尾。这种行为在模拟经典的继承。
+
+##### 说说您对AMD和CommonJS的了解。
+
+CommonJS 是同步的，而 AMD（Asynchronous Module Definition）从全称中可以明显看出是异步的。CommonJS的设计是为服务端开发考虑的，而AMD支持异步加载模块，更适合浏览器。
+
+###### 参考：
+
+https://auth0.com/blog/authors/sebastian-peyrott/
+
