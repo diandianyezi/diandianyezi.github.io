@@ -1,3 +1,10 @@
+---
+title: Await to js
+date: 2022-04-12
+tags:
+  - Javascript
+  - Promise
+---
 # Await to js 
 
 [github](https://blog.grossman.io/how-to-write-async-await-without-try-catch-blocks-in-javascript/)

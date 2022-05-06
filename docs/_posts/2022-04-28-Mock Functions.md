@@ -1,3 +1,10 @@
+---
+title: Jest Mock Functions
+date: 2022-04-28
+tags:
+  - Jest
+  - Test Tools
+---
 ## Mock Functions
 
 Mock functions allow you to test the links between code by erasing the actual implementation of a function, capturing calls to the function (and the parameters passed in those calls), capturing instances of constructor functions when instantiated with `new`, and allowing test-time configuration of return values.

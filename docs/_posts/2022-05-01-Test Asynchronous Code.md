@@ -1,3 +1,10 @@
+---
+title: Test Asynchronous
+date: 2022-05-01
+tags:
+  - Jest
+  - Test Tools
+---
 ### Promises
 
 Return a promise from your test, and Jest will wait for that promise to resolve. If the promise is rejected, the test will fail.
