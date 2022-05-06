@@ -78,7 +78,7 @@ module.exports = {
         width: "80px",
         height: "20px"
       },
-      custom: `Copyright &copy; Top Blog 2020 <br /> 
+      custom: `Copyright &copy; Top Blog 2022 <br /> 
         Theme By <a href="https://www.vuepress.cn/" target="_blank">VuePress</a>
         | <a href="https://www.github.com/youdeliang/" target="_blank">youdeliang</a>`
     },
