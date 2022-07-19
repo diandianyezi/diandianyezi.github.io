@@ -1,10 +1,3 @@
----
-layout: about
-title: About
-subtitle: 你可以很好，但你无需完美
-headerImage: /about-bg.jpg
----
-
 ## 作者信息
 
 > 但愿日子都是清透，抬头遇见都是柔情。
