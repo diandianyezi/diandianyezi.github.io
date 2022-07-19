@@ -1,3 +1,10 @@
+---
+title: 认识requestAnimationFrame
+date: 2022-07-17
+tags:
+  - requestAnimationFrame
+  - 浏览器
+---
 ## 认识requestAnimationFrame
 
 告诉浏览器-你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。该方法需要传入一个回调函数作为参数，该回调函数会在浏览器下次重绘之前执行。
@@ -25,44 +32,44 @@
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .animation {
-            height: 200px;
-            width: 200px;
-            background-color: red;
-        }
-    </style>
-</head>
-<body>
-    <div id="animation">
-        jjj
-    </div>
-    <script>
-        const element = document.getElementById('animation');
-        let start;
-    
-        function step(timestamp) {
-            if (start === undefined)
-                start = timestamp;
-            
-            const elapsed = timestamp - start;
-    
-            //这里使用`Math.min()`确保元素刚好停在 200px 的位置。
-            element.style.transform = 'translateX(' + Math.min(0.1 * elapsed, 200) + 'px)';
-    
-            if (elapsed < 2000) { // 在两秒后停止动画
-                window.requestAnimationFrame(step);
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .animation {
+                height: 200px;
+                width: 200px;
+                background-color: red;
             }
-        }
-    
-        window.requestAnimationFrame(step);
-    </script>
-</body>
+        </style>
+    </head>
+    <body>
+        <div id="animation">
+            jjj
+        </div>
+        <script>
+            const element = document.getElementById('animation');
+            let start;
+        
+            function step(timestamp) {
+                if (start === undefined)
+                    start = timestamp;
+                
+                const elapsed = timestamp - start;
+        
+                //这里使用`Math.min()`确保元素刚好停在 200px 的位置。
+                element.style.transform = 'translateX(' + Math.min(0.1 * elapsed, 200) + 'px)';
+        
+                if (elapsed < 2000) { // 在两秒后停止动画
+                    window.requestAnimationFrame(step);
+                }
+            }
+        
+            window.requestAnimationFrame(step);
+        </script>
+    </body>
 </html>
 ```
 
