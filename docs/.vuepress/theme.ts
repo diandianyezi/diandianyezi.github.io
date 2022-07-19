@@ -75,7 +75,7 @@ export default hopeTheme({
 
       blog: {
         description: 'A FrontEnd programmer',
-        intro: '/intro.html',
+        intro: '/intro/index.html',
       },
 
       // metaLocales: {
