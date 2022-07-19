@@ -174,7 +174,7 @@ my-blog
           },
           
           // 添加自定义 footer
-          custom: `Copyright &copy; Top Blog 2020 <br /> 
+          custom: `Copyright &copy; Top Blog 2022 <br /> 
             Theme By <a href="https://www.vuepress.cn/" target="_blank">VuePress</a>
             | <a href="https://www.github.com/youdeliang/" target="_blank">youdeliang</a>`
         },
