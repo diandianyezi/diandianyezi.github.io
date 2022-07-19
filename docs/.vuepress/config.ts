@@ -54,7 +54,22 @@ export default defineUserConfig({
     //     headerImage: '/tags-bg.jpg'
     //   },
     //   postHeaderImg: '/post-bg.jpeg',
-    sidebar: 'auto'
+    sidebar: {
+      '/': [
+        { 
+          text: 'posts',
+          children: [
+
+          ]
+        }
+      ],
+      '/about/': [
+        {
+          text: 'about',
+          children: []
+        }
+      ]
+    }
     // },
     // footer sns
     // sns: {
