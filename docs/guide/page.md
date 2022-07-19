@@ -3,7 +3,8 @@
 title: 页面配置
 # 这是页面的图标
 icon: page
-# 这是侧边栏的顺序
+article: false
+
 order: 1
 # 设置作者
 author: Ms.Hope
