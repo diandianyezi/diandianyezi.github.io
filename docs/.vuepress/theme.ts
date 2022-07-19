@@ -76,6 +76,7 @@ export default hopeTheme({
       blog: {
         description: 'A FrontEnd programmer',
         intro: '/intro/index.html',
+        filter: (page) => page.filePathRelative.indexOf('/posts/') >= 0
       },
 
       // metaLocales: {
