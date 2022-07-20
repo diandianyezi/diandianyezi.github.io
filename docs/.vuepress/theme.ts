@@ -79,7 +79,7 @@ export default hopeTheme({
       // sidebar
       sidebar: sidebar.zh,
 
-      footer: '好好学习 天天向上',
+      footer: '<a href="https://vuepress-theme-hope.github.io/v2/zh/guide/">主题配置：VuePress Theme Hope</a>',
 
       displayFooter: true,
       blog: {
