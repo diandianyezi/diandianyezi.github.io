@@ -4,7 +4,7 @@ layout: Blog
 icon: home
 title: 
 heroImage: /logo.svg
-heroText: 
+bgImage: false
 tagline: 真正的勤勉，从来不是盲目地忙，而是时时有所创造、事事有所成就、处处有所精进
 heroFullScreen: false
 # projects:

@@ -15,3 +15,23 @@
 .article .excerpt {
   margin: 10px 0 15px;
 }
+
+.blog-hero {
+  background-image: linear-gradient(to top, var(--theme-color) 0%, var(--bg-color-float-blur) 100%);
+  box-shadow: 10px -10px 20px rgba(150, 66, 214, 0.2),
+    -10px 10px 20px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(6px);
+  h1 {
+    color: var(--text-color);
+  }
+  .description {
+    color: var(--text-color);
+  }
+}
+
+html[data-theme=dark] {
+  .blog-hero {
+    background-image: linear-gradient(to right, var(--bg-color-float) 0%, var(--bg-color-float) 100%);
+    box-shadow: 0 1px 3px 1px var(--card-shadow);
+  }
+}
