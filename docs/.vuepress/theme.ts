@@ -1,4 +1,5 @@
 import { hopeTheme } from 'vuepress-theme-hope';
+import { Page } from 'vuepress-vite';
 import * as navbar from './navbar';
 import * as sidebar from './sidebar';
 
@@ -17,12 +18,14 @@ export default hopeTheme({
 
   logo: '/logo.svg',
 
+  repo: 'https://github.com/diandianyezi/diandianyezi.github.io',
+  repoLabel: 'github',
+
   // repo: 'vuepress-theme-hope/vuepress-theme-hope',
 
   // docsDir: 'demo/src',
 
   pageInfo: ['Author', 'Original', 'Date', 'Category', 'Tag', 'ReadingTime'],
-
   blog: {
     medias: {
       // Baidu: 'https://example.com',
@@ -60,6 +63,13 @@ export default hopeTheme({
       // ],
     },
   },
+  themeColor: {
+    // purple: "#747bff",
+    blue: "#2196f3",
+    red: "#f26d6d",
+    green: "#3eaf7c",
+    orange: "#fb9b5f",
+  },
 
   locales: {
     '/': {
@@ -72,11 +82,10 @@ export default hopeTheme({
       footer: '好好学习 天天向上',
 
       displayFooter: true,
-
       blog: {
         description: 'A FrontEnd programmer',
         intro: '/intro/index.html',
-        filter: (page) => page.filePathRelative.indexOf('/posts/') >= 0
+        filter: (page: Page) => page.filePathRelative.indexOf('/article/') >= 0
       },
 
       // metaLocales: {

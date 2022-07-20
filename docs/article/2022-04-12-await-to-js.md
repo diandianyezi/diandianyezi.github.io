@@ -1,6 +1,11 @@
 ---
 title: Await to js
 date: 2022-04-12
+sidebar: heading
+breadcrumb: true
+lastUpdated: true
+contributors: true
+editLink: false
 tag:
   - Javascript
   - Promise

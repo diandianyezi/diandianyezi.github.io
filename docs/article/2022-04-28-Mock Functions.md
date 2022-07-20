@@ -1,6 +1,11 @@
 ---
 title: Jest Mock Functions
 date: 2022-04-28
+sidebar: heading
+breadcrumb: true
+lastUpdated: true
+contributors: true
+editLink: false
 tag:
   - Jest
   - Test Tools

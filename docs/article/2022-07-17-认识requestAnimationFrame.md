@@ -1,6 +1,12 @@
 ---
 title: 认识requestAnimationFrame
 date: 2022-07-17
+category: JavaScript
+sidebar: heading
+breadcrumb: true
+lastUpdated: true
+contributors: true
+editLink: false
 tag:
   - requestAnimationFrame
   - 浏览器

@@ -2,7 +2,8 @@ import { navbar } from 'vuepress-theme-hope';
 import { version } from 'vuepress-theme-hope/package.json';
 
 export const zh = navbar([
-  { text: '博文', icon: 'home', link: '/' },
+  { text: '首页', icon: 'home', link: '/' },
+  { text: '文章', icon: 'edit', link: '/article/' },
   // '/home',
   { text: '使用指南', icon: 'creative', link: '/guide/' },
   // {
