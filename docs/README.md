@@ -5,7 +5,7 @@ icon: home
 title: 
 heroImage: /logo.svg
 # bgImage: false
-bgImage: 'https://raw.githubusercontent.com/diandianyezi/typora-images/master/img/181ab136487b6dc2ebf94c17486e7e3b.jpg'
+bgImage: 'https://s1.ax1x.com/2022/07/21/jLDqJI.jpg'
 
 tagline: 真正的勤勉，从来不是盲目地忙，而是时时有所创造、事事有所成就、处处有所精进
 heroFullScreen: false
