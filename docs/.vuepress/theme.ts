@@ -18,7 +18,7 @@ export default hopeTheme({
 
   logo: '/logo.svg',
 
-  repo: 'https://github.com/diandianyezi/diandianyezi.github.io',
+  // repo: 'https://github.com/diandianyezi/diandianyezi.github.io',
   repoLabel: 'github',
 
   // repo: 'vuepress-theme-hope/vuepress-theme-hope',
