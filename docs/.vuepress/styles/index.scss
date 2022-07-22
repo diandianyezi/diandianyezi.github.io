@@ -1,3 +1,7 @@
+:root {
+  --custom-text-color: var(--text-color);
+}
+
 .navbar .logo {
   border-radius: 50%;
 }
@@ -16,6 +20,15 @@
   margin: 10px 0 15px;
 }
 
+.blog-hero {
+  h1 {
+    display: none;
+  }
+  p {
+    color: var(--custom-text-color);
+    font-weight: bold;
+  }
+}
 // .blog-hero {
 //   // opacity: .5;
 //   background-image: linear-gradient(to bottom right, var(--theme-color-light) 0%, #f0f0f0 100%);
