@@ -12,7 +12,7 @@ export default defineUserConfig({
   locales: {
     '/': {
       lang: 'zh-CN',
-      title: 'Yezi的博客',
+      title: 'Yezi’s Blog',
       description: '学习技术',
     },
     // '/zh/': {
