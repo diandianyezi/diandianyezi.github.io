@@ -1,5 +1,5 @@
 import { defineUserConfig } from '@vuepress/cli';
-const googleAnalyticsPlugins = require('@vuepress/plugin-google-analytics')
+const { googleAnalyticsPlugin } = require('@vuepress/plugin-google-analytics')
 import theme from './theme';
 
 const base = (process.env.BASE as '/' | `/${string}/`) || '/';
@@ -25,7 +25,7 @@ export default defineUserConfig({
 
   shouldPrefetch: false,
   plugins: [
-    googleAnalyticsPlugins({
+    googleAnalyticsPlugin({
       id: 'G-BTL86KX7LE'
     })
   ]

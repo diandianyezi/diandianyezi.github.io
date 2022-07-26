@@ -10,11 +10,11 @@ bgImage: 'https://s1.ax1x.com/2022/07/21/jLDqJI.jpg'
 
 tagline: '<span>真正的勤勉，从来不是盲目地忙，<br/>而是时时有所创造、事事有所成就、处处有所精进</span>'
 heroFullScreen: false
-# projects:
-  # - icon: project
-  #   name: project name
-  #   desc: project detailed description
-  #   link: https://your.project.link
+projects:
+  - icon: blog
+    name: 木易杨前端进阶
+    desc: 前端进阶知识
+    link: https://muyiy.cn/
 
   # - icon: link
   #   name: link name
