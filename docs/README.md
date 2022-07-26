@@ -2,7 +2,7 @@
 home: true
 layout: Blog
 icon: home
-title: '首页'
+title: ''
 heroImage: /logo.svg
 # bgImage: false
 # https://imgtu.com/i/jLDqJI 图床地址

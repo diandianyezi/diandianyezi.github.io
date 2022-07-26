@@ -8,7 +8,9 @@ export default defineUserConfig({
   base,
 
   dest: './dist',
-
+  head: [
+    ['link', { rel: 'icon', href: '/favicon.icon' }]
+  ],
   locales: {
     '/': {
       lang: 'zh-CN',
