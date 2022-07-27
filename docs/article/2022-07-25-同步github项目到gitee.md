@@ -1,6 +1,6 @@
 ---
-layout: post
 title: 同步github项目到gitee
+date: 2022-07-25
 sidebar: heading
 breadcrumb: true
 lastUpdated: true
