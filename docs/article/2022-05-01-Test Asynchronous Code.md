@@ -6,9 +6,11 @@ breadcrumb: true
 lastUpdated: true
 contributors: true
 editLink: false
+category:
+  - 测试
 tag:
   - Jest
-  - Test Tools
+  - Promise
 ---
 ### Promises
 

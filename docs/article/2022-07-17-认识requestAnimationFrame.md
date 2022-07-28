@@ -1,12 +1,13 @@
 ---
 title: 认识requestAnimationFrame
 date: 2022-07-17
-category: JavaScript
 sidebar: heading
 breadcrumb: true
 lastUpdated: true
 contributors: true
 editLink: false
+category:
+  - Web API
 tag:
   - requestAnimationFrame
   - 浏览器

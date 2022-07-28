@@ -6,8 +6,8 @@ breadcrumb: true
 lastUpdated: true
 contributors: true
 editLink: false
+category: JavaScript
 tag:
-  - Javascript
   - Promise
 ---
 # Await to js 

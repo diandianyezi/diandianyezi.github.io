@@ -11,20 +11,20 @@ bgImage: 'https://s1.ax1x.com/2022/07/21/jLDqJI.jpg'
 tagline: '<span>真正的勤勉，从来不是盲目地忙，<br/>而是时时有所创造、事事有所成就、处处有所精进</span>'
 heroFullScreen: false
 projects:
-  - icon: blog
+  - icon: stack
     name: 木易杨前端进阶
     desc: 前端进阶知识
     link: https://muyiy.cn/
 
-  # - icon: link
-  #   name: link name
-  #   desc: link detailed description
-  #   link: https://link.address
+  - icon: link
+    name: 稀土掘金
+    desc: 好文章
+    link: https://juejin.cn/
 
-  # - icon: book
-  #   name: book name
-  #   desc: Detailed description of the book
-  #   link: https://link.to.your.book
+  - icon: github
+    name: Github
+    desc: 优秀项目
+    link: https://github.com/
 
   # - icon: article
   #   name: article name
@@ -49,3 +49,14 @@ projects:
 To use this layout, you should set both `layout: Blog` and `home: true` in the page front matter. -->
 
 <!-- For related configuration docs, please see [blog homepage](https://vuepress-theme-hope.github.io/v2/guide/blog/home/). -->
+
+
+<!-- 
+分类主要有以下几种:
+category: JavaScript、ES6+、NodeJS、开发技巧、Webpack、Babel、Css、HTTP、LeetCode、HTML、Web API
+
+tag: 
+
+- 基础
+- 进阶
+-->
