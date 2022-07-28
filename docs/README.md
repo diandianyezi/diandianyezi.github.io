@@ -26,20 +26,20 @@ projects:
     desc: 优秀项目
     link: https://github.com/
 
-  # - icon: article
-  #   name: article name
-  #   desc: Detailed description of the article
-  #   link: https://link.to.your.article
+  - icon: link
+    name: ECMA262
+    desc: ECMA262最新标准
+    link: https://www.ecma-international.org/publications-and-standards/standards/ecma-262/
 
-  # - icon: friend
-  #   name: friend name
-  #   desc: Detailed description of friend
-  #   link: https://link.to.your.friend
+  - icon: link
+    name: MDN
+    desc: MDN文档
+    link: https://developer.mozilla.org/zh-CN/
 
-  # - icon: /logo.svg
-  #   name: custom item
-  #   desc: Detailed description of this custom item
-  #   link: https://link.to.your.friend
+  - icon: link
+    name: W3C
+    desc: Detailed description of this custom item
+    link: https://www.w3.org/
 
 # footer: customize your footer text
 ---
