@@ -196,11 +196,11 @@ export default hopeTheme({
             sizes: '512x512',
             type: 'image/png',
           },
-          {
-            src: '/assets/icon/chrome-192.png',
-            sizes: '192x192',
-            type: 'image/png',
-          },
+          // {
+          //   src: '/assets/icon/chrome-192.png',
+          //   sizes: '192x192',
+          //   type: 'image/png',
+          // },
         ],
         shortcuts: [
           {
