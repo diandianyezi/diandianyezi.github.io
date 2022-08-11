@@ -26,10 +26,10 @@ projects:
     desc: 优秀项目
     link: https://github.com/
 
-  # - icon: article
-  #   name: article name
-  #   desc: Detailed description of the article
-  #   link: https://link.to.your.article
+  - icon: link
+    name: 冴羽大佬 github
+    desc: 冴羽博客
+    link: https://github.com/mqyqingfeng/Blog
 
   # - icon: friend
   #   name: friend name
