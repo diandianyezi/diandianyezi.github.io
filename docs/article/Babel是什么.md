@@ -1,3 +1,16 @@
+---
+  title: Babel介绍
+  date: 2022-07-29
+  sidebar: heading
+  breadcrumb: true
+  lastUpdated: true
+  contributors: true
+  editLink: false
+  category: JavaScript
+  tag:
+    - Babel
+
+---
 [官网](https://www.babeljs.cn/docs/index.html)
 
 ## Babel 是什么？
