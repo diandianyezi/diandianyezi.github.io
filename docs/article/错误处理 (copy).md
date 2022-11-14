@@ -1,0 +1,76 @@
+# Vue项目中的错误处理
+
+- 错误类型
+- 如何处理
+- 源码分析
+
+
+
+## 错误类型
+
+- 后端接口错误
+- 代码中本身逻辑错误
+
+
+
+## 如何处理
+
+### 后端接口错误
+
+通过`axios` 的 `intercept`实现对网络请求的response先进行一层拦截
+
+```js
+apiClient.interceptors.response.use(
+  response => {
+    return response;
+  },
+  error => {
+    if (error.response.status == 401) {
+      router.push({ name: "Login" });
+    } else {
+      message.error("出错了");
+      return Promise.reject(error);
+    }
+  }
+);
+```
+
+### 代码逻辑问题
+
+##### 全局设置错误处理
+
+设置全局错误处理函数
+
+```js 
+Vue.config.errorHandler = function(err, vm, info) {
+  // handle error
+  // `info` 是 Vue 特定的错误信息，比如错误所在的生命周期钩子
+  // 只在 2.2.0+ 可用
+}
+```
+
+`errorHandler`指定组件的渲染和观察期间未捕获错误的处理函数。这个处理函数被调用时，可获取错误信息和 `Vue` 实例
+
+不过值得注意的是，在不同` Vue` 版本中，该全局 `API` 作用的范围会有所不同：
+
+> 从 2.2.0 起，这个钩子也会捕获组件生命周期钩子里的错误。同样的，当这个钩子是 `undefined` 时，被捕获的错误会通过 `console.error` 输出而避免应用崩
+
+> 从 2.4.0 起，这个钩子也会捕获 Vue 自定义事件处理函数内部的错误了
+
+> 从 2.6.0 起，这个钩子也会捕获 `v-on` DOM 监听器内部抛出的错误。另外，如果任何被覆盖的钩子或处理函数返回一个 Promise 链 (例如 async 函数)，则来自其 Promise 链的错误也会被处理
+
+##### 生命周期钩子
+
+`errorComputed`是2.5.0新增的一个生命钩子函数，当捕获到一个来自子孙组件的错误时被调用
+
+基本类型
+
+```js
+(err: Error, vm: Component, info: string) => ?boolean
+```
+
+## 源码分析
+
+异常处理源码
+
+源码位置：/src/core/util/error.js
