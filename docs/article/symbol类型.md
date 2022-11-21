@@ -1,3 +1,15 @@
+---
+  title: Symbol类型
+  date: 2022-11-12
+  sidebar: heading
+  breadcrumb: true
+  lastUpdated: true
+  contributors: true
+  editLink: false
+  category: Javascript
+  tag:
+    - 基础
+---
 ## Symbol类型
 
 根据规范，只有两种原始类型可以用作对象属性键：
