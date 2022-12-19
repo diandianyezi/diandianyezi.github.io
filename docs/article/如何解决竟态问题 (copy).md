@@ -1,0 +1,236 @@
+---
+title: 如何解决竟态问题
+date: 2022-11-18
+sidebar: heading
+breadcrumb: true
+lastUpdated: true
+contributors: true
+editLink: false
+category: Javascript
+tag:
+  - Javascript
+
+---
+
+## 什么是竟态问题？
+
+**竟态问题，又叫竟态条件(race condition)，**它旨在描述一个系统或者进程的输出依赖于不受控制的事件出现顺序或者出现时机。
+
+简单来说，竟态问题出现的原因是**无法保证异步操作的完成会按照它们开始时同样的顺序**。
+
+例如：
+
+- 分页列表，快速切换第二页，第三页；
+- 先后请求data2和data3，分页器显示当前在第3页，并且进入loading；
+- 但由于网络的不确定性，先发出的请求不一定先响应，所以可能data3比data2先返回；
+- 在data2最终返回后，分页器指示当前在第三页，但展示的是第二页的数据。
+
+在前端开发中，常见于搜索、分页、选项卡等切换的场景。
+
+## 如何解决竟态问题？
+
+在以上场景中，我们可以想到 **在发出新的请求时，取消掉上次请求**。
+
+
+
+### 取消过期请求
+
+#### XMLHttpRequest取消请求
+
+XMLHttpRequest是一个内建的浏览器对象，允许使用Javascript发送http请求。如果请求已经发出，可以使用 `abort()`方法立刻中止请求。
+
+```js
+const xhr = new XMLHttpRequest();
+
+xhr.open('GET', 'https://xxx');
+xhr.send();
+
+xhr.abort();
+```
+
+
+
+#### fetch API取消请求
+
+fetch号称为Ajax的替代品，出现于ES6，可以发出类似XMLHttpRequest的网络请求。
+
+主要区别：fetch使用了promise，要中止fetch发出的请求，需要使用`AbortController`。
+
+```js
+const controller = new AbortController();
+const signal = controller.signal;
+
+fetch('/xxx', {
+  signal,
+}).then(function(res) {
+  //...
+})
+
+controller.abort(); // 取消请求
+```
+
+
+
+#### axios取消请求
+
+axios是一个HTTP请求库，本质是对原生XMLHttpRequest的封装后基于promise的实现版本，因此axios请求也可以被取消。可以使用axios的`CancelToken API`取消请求。
+
+```js
+const source = axios.CancelToken.source();
+
+axios.get('/xxx', {
+  cancelToken: source.token,
+}).then(function(res) {
+  //...
+})
+
+source.cancel() // 取消请求
+```
+
+
+
+在cancel时，axios会在内部调用promise.reject()与xhr.abort();
+
+![img](https://raw.githubusercontent.com/diandianyezi/typora-images/master/img/8ac9450b1d15475abf70977f7bb17c3c%7Etplv-k3u1fbpfcp-zoom-in-crop-mark%253A4536%253A0%253A0%253A0.awebp)
+
+所以我们在处理请求错误时，需要判断error是否是onCancel导致的，避免与常规错误一起处理。
+
+```js
+axios.get('/xxx', {
+  cancelTOken: source.token
+}).catch(function(error) {
+  if(axios.isCancel(err)) {
+    console.log('Request canceled', err.message);
+  } else {
+    // 处理错误
+  }
+})
+```
+
+但 cancelToken 从 `v0.22.0` 开始已被 axios 弃用。原因是基于实现该 API 的提案 [cancelable promises proposal](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Ftc39%2Fproposal-cancelable-promises) 已被撤销。
+
+从 `v0.22.0` 开始，axios 支持以 fetch API 方式的 AbortController 取消请求
+
+```javascript
+const controller = new AbortController();
+
+axios.get('/xxx', {
+  signal: controller.signal
+}).then(function(response) {
+   //...
+});
+
+controller.abort() // 取消请求
+复制代码
+```
+
+同样，在处理请求错误时，也需要判断 error 是否来自 cancel。
+
+
+
+### 可取消的promise
+
+原生promise并不支持cancel，但cancel对于异步操作来说又是个很常见的需求，所以社区有很多仓库自己实现了cancen能力。
+
+以 `awesome-imporetive-promise`为例，来看看cancel的实现，它的cancel实现基于指令式promise，源码一共只有40行。
+
+```js
+import { createImperativePromise } from 'awesome-imperative-promise';
+const { resolve, reject, cancel } = createImperativePromise(promise);
+// 
+resolve('some val');
+// or
+reject(new Error());
+// or
+cancel()
+```
+
+内部的cancel方法其实就是将resolve、reject设为null，让promise永远不会resolve/reject。
+
+> 一直没有 resolve 也没有 reject 的 Promise 会造成内存泄露吗？
+
+
+
+### 忽略过期请求
+
+#### 封装指令式promise
+
+封装一个自动忽略过期请求的高阶函数 `onlyResolvesLast`
+
+在每次发送新的请求前，cancel掉上次的请求，忽略它的回调。
+
+```js
+function onlyResolvesLast(fn) {
+  // 保存上一个请求的cancel方法
+  let cancelPrevious = null;
+  
+  const wrapperFn = (...args) => {
+    // 当前请求执行前，先cancel上一个请求
+    cancelPrevious && cancelPrevious();
+    // 执行房钱请求
+    const result = fn.apply(this, args);
+    
+    // 创建指令式promise,暴露cancel方法并保存
+    const { promise, cancel } = createImperativePromise(result);
+    cancelPrevious = cancel;
+  }
+  
+  return wrapperFn;
+}
+```
+
+将onlyResolvesLast包装一下请求方法，就能实现自动忽略，减少很多模板代码。
+
+```js
+const fn = (duration) => {
+  return new Promise(r => {
+    setTimeout(r, duration);
+  })
+}
+
+const wrapperFn = onlyResolvesLast(fn);
+
+wrappedFn(500).then(() => console.log(1));
+wrappedFn(1000).then(() => console.log(2));
+wrappedFn(100).then(() => console.log(3));
+
+// 输出3
+```
+
+
+
+#### 使用唯一id标识每次请求
+
+具体思路：
+
+- 利用全局变量记录最新一次的请求id；
+- 在发请求前，生成唯一id标识该次请求；
+- 在请求回调中，判断id是否是最新的id，如果不是，则忽略该请求的回调
+
+```js
+function onlyResolvesLast(fn) {
+  let id = 0;
+  
+  const wrapperFn(...args) => {
+    const fetchId = id + 1;
+    id = fetchId;
+    
+    const result = fn.apply(this, args);
+    
+    return new Promise((resolve, reject) => {
+      Promise.resolve(result).then((value) => {
+        if(fetchId === id) {
+          resolve(value);
+        }
+      }, (error) => {
+        if(fetchId === id) {
+          reject(error);
+        }
+      })
+    })
+  }
+  
+  return wrapperFn;
+}
+```
+
