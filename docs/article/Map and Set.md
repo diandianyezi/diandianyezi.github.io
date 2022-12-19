@@ -1,3 +1,15 @@
+---
+  title: Map和Set
+  date: 2022-11-14
+  sidebar: heading
+  breadcrumb: true
+  lastUpdated: true
+  contributors: true
+  editLink: false
+  category: Javascript
+  tag:
+    - 基础
+---
 ## Map和Set 映射和集合 
 
 ### Map
