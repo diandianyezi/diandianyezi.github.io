@@ -1,5 +1,14 @@
 ---
-title: Sass语法
+title: Scss语法
+date: 2022-12-01
+sidebar: heading
+breadcrumb: true
+lastUpdated: true
+contributors: true
+editLink: false
+category: Scss
+tag:
+  - Scss
 ---
 
 ## 语法
