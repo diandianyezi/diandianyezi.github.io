@@ -37,13 +37,8 @@ projects:
     link: https://www.processon.com/view/link/61c53fb31efad45a2b42afd9#map
   
   - icon: link
-    name: 前端进阶学习指南
-    desc: 前端进阶学习指南
-    link: https://www.processon.com/view/link/61c53fb31efad45a2b42afd9#map
-  
-  - icon: link
-    name: 前端进阶学习指南
-    desc: 前端进阶学习指南
+    name: JavaScript资源大全
+    desc: JavaScript资源大全
     link: https://github.com/jobbole/awesome-javascript-cn
 
   # - icon: /logo.svg
