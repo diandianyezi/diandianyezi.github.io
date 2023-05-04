@@ -1,6 +1,9 @@
 ---
 title: git操作之rebase和merge
 date: 2023-04-28
+category: 版本管理
+tags:
+ - git
 ---
 
 # Git操作之rebase 和merge
