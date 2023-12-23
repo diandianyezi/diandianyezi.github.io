@@ -1,5 +1,5 @@
 ---
-title: vue内置指令
+title: 学习Resize Observer API
 date: 2023-09-09
 sidebar: heading
 breadcrumb: true
