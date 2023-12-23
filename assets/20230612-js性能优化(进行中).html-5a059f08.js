@@ -1,0 +1,1 @@
+import{_,W as e,X as t,Z as s}from"./framework-609d4fec.js";const c={},o=s("p",null,"影响前端性能的",-1),n=[o];function r(a,l){return e(),t("div",null,n)}const f=_(c,[["render",r],["__file","20230612-js性能优化(进行中).html.vue"]]);export{f as default};

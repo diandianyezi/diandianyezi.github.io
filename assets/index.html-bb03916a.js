@@ -1,0 +1,1 @@
+import{_ as t,W as a,X as n,Z as e,a1 as o}from"./framework-609d4fec.js";const r={},s=e("h1",{id:"intro-page",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#intro-page","aria-hidden":"true"},"#"),o(" Intro Page")],-1),c=e("p",null,"喵喵喵。。。",-1),_=[s,c];function d(i,l){return a(),n("div",null,_)}const f=t(r,[["render",d],["__file","index.html.vue"]]);export{f as default};
